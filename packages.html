@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages | X5 Growth System - Your AI-Powered Revenue Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a2540;
+            --primary-blue: #0057ff;
+            --primary-accent: #00d4aa;
+            --secondary-blue: #00b8ff;
+            --light-bg: #f8fafc;
+            --light-gray: #e2e8f0;
+            --medium-gray: #94a3b8;
+            --dark-gray: #475569;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .logo .x5 {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section - Packages */
+        .packages-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .packages-hero::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
+        }
+
+        .packages-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .packages-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .packages-hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .packages-hero-cta {
+            display: inline-block;
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 18px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .packages-hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
+        .packages-hero-cta i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .packages-hero-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-dark);
+        }
+
+        .section-title span {
+            color: var(--primary-blue);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        /* Investment Spectrum Section */
+        .spectrum-section {
+            background-color: var(--light-bg);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 992px) {
+            .packages-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .package-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .package-card.featured {
+            border: 3px solid var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 212, 170, 0.3);
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .package-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .package-roi-focus {
+            background-color: rgba(0, 87, 255, 0.1);
+            color: var(--primary-blue);
+            padding: 12px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .package-price {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .price-period {
+            color: var(--dark-gray);
+            font-size: 1rem;
+        }
+
+        .package-features {
+            flex-grow: 1;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .feature-item i {
+            color: var(--primary-accent);
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            color: var(--dark-gray);
+        }
+
+        .package-cta {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .package-cta:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+        }
+
+        /* Why Audit Section */
+        .audit-section {
+            background-color: var(--white);
+        }
+
+        .audit-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .audit-reason {
+            background-color: rgba(255, 107, 107, 0.1);
+            border-left: 5px solid #ff6b6b;
+            padding: 40px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 60px;
+        }
+
+        .audit-reason h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .audit-reason p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .comparison-column {
+            background-color: var(--light-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .comparison-column:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .column-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .column-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .cost-saving .column-badge {
+            background-color: rgba(0, 212, 170, 0.2);
+            color: #008b6e;
+        }
+
+        .profit-generation .column-badge {
+            background-color: rgba(0, 87, 255, 0.2);
+            color: var(--primary-blue);
+        }
+
+        .column-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .column-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .column-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .column-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .column-features i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .cost-saving .column-features i {
+            color: #00d4aa;
+        }
+
+        .profit-generation .column-features i {
+            color: var(--primary-blue);
+        }
+
+        .column-cta {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .column-cta:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+        }
+
+        /* Booking Section */
+        .booking-section {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .booking-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .booking-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .booking-form-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .form-subtitle {
+            color: var(--dark-gray);
+            margin-bottom: 40px;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .booking-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .form-group.full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 87, 255, 0.3);
+        }
+
+        .submit-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--primary-accent);
+        }
+
+        .footer-logo .x5 {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .footer-about {
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .packages-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .mobile-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-links {
+                list-style: none;
+            }
+            
+            .mobile-links li {
+                margin-bottom: 15px;
+            }
+            
+            .mobile-links a {
+                text-decoration: none;
+                color: var(--primary-dark);
+                font-weight: 500;
+                font-size: 1.1rem;
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+            
+            .package-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .packages-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .packages-hero {
+                padding: 150px 0 80px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .booking-form-container {
+                padding: 30px 20px;
+            }
+            
+            .audit-reason {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <span>X</span>5<span class="x5">X5</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/packages" class="active">Packages</a></li>
+                    <li><a href="/contact">Process & Contact</a></li>
+                </ul>
+                
+                <a href="#book-audit" class="nav-cta" id="book-audit-nav">Book Free Audit</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <ul class="mobile-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/packages" class="active">Packages</a></li>
+                    <li><a href="/contact">Process & Contact</a></li>
+                    <li><a href="#book-audit" class="nav-cta" id="book-audit-mobile">Book Free Audit</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section - Packages -->
+    <section class="packages-hero">
+        <div class="container">
+            <div class="packages-hero-content fade-in">
+                <h1>Stop Paying for Overheads.<br>Start Paying for Performance.</h1>
+                <p class="packages-hero-subtitle">Your investment is an ROI projection, not just a monthly cost. We don't sell packages—we prescribe solutions based on your unique growth potential. Let us find your perfect fit.</p>
+                <a href="#book-audit" class="packages-hero-cta" id="hero-cta">
+                    Book Your Custom ROI Audit
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Spectrum Section -->
+    <section class="spectrum-section">
+        <div class="container">
+            <h2 class="section-title">Don't Choose a Package. <span>Choose a Projected ROI.</span></h2>
+            <p class="section-subtitle">Every business is unique. We perform a free audit to forecast whether your priority is <strong>Operational Savings</strong> or <strong>Revenue Growth</strong>, then recommend the precise tier.</p>
+            
+            <div class="packages-grid">
+                <!-- Strategic Package -->
+                <div class="package-card fade-in">
+                    <div class="package-badge">COST SAVINGS FOCUS</div>
+                    <h3 class="package-name">Strategic</h3>
+                    <p class="package-subtitle">Dedicated Team & Basic Automation</p>
+                    
+                    <div class="package-roi-focus">
+                        Typical Client ROI Focus:<br>
+                        <strong>For brands seeking 30%+ operational efficiency</strong>
+                    </div>
+                    
+                    <div class="package-price">
+                        <div class="price-amount">Starting at $3,500</div>
+                        <div class="price-period">per month • Minimum 3-month commitment</div>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated Account Strategist (Your POC)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Management of 2 Core Channels (Ads/Content/Email)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Full Execution & Performance Reports</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Standard n8n Workflows (Data Sync & Reporting)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Pivot Guarantee (Zero Scope Creep Fee)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Team: 1 Strategist + 1 Automation Specialist</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#book-audit" class="package-cta" data-package="Strategic">
+                        Book Audit to See If This Is Your Fit
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+                
+                <!-- Full Stack Package -->
+                <div class="package-card featured fade-in delay-1">
+                    <div class="package-badge" style="background-color: var(--primary-blue); color: white;">OPTIMAL PERFORMANCE</div>
+                    <h3 class="package-name">Full Stack</h3>
+                    <p class="package-subtitle">RevOps, Multi-Channel & Advanced Strategy</p>
+                    
+                    <div class="package-roi-focus">
+                        Typical Client ROI Focus:<br>
+                        <strong>For scaling brands with 3+ revenue streams</strong>
+                    </div>
+                    
+                    <div class="package-price">
+                        <div class="price-amount">Starting at $5,500</div>
+                        <div class="price-period">per month • Minimum 3-month commitment</div>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Full X5 5-Layer System Access</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated Strategist & Automation Engineer</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Management of 3-4 Channels (A-Z)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>RevOps Integration (HubSpot/Salesforce Sync)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Basic Predictive LTV Scoring (Layer 5)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority Support & Quarterly Planning</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Team: Strategist + Engineer + Content/RevOps Resources</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#book-audit" class="package-cta" data-package="Full Stack">
+                        Book Audit to See If This Is Your Fit
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+                
+                <!-- Intelligence Suite Package -->
+                <div class="package-card fade-in delay-2">
+                    <div class="package-badge" style="background-color: #ff6b6b; color: white;">ENTERPRISE GROWTH</div>
+                    <h3 class="package-name">Intelligence Suite</h3>
+                    <p class="package-subtitle">Predictive Growth & LTV Guarantee</p>
+                    
+                    <div class="package-roi-focus">
+                        Typical Client ROI Focus:<br>
+                        <strong>For established brands optimizing LTV & predicting churn</strong>
+                    </div>
+                    
+                    <div class="package-price">
+                        <div class="price-amount">Starting at $8,000</div>
+                        <div class="price-period">per month • Minimum 6-month commitment</div>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>All Full Stack Features</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated Revenue Intelligence Analyst</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Predictive LTV & Churn Forecasting (Full Layer 5)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Custom AI Agent Training (Brand Voice)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Custom API/System Integrations</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quarterly Business Review with LTV Forecast</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Team: Strategist + Analyst + Engineer + Shared Resources</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#book-audit" class="package-cta" data-package="Intelligence Suite">
+                        Book Audit to See If This Is Your Fit
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Audit Section -->
+    <section class="audit-section">
+        <div class="container">
+            <div class="audit-container">
+                <div class="audit-reason fade-in">
+                    <h3>⚠️ Why We Require a Consultation Before Recommending Any Tier</h3>
+                    <p>The Intelligence Suite (or any tier) is only effective if it matches your current LTV and operational maturity. We need to perform a brief audit to ensure we recommend the tier that guarantees your highest possible ROI.</p>
+                    <p><strong>Guessing your tier is a costly mistake.</strong> Without proper analysis, you could either under-invest (missing growth opportunities) or over-invest (wasting resources on features you can't yet leverage).</p>
+                </div>
+                
+                <h2 class="section-title">🎯 <span>$3,500:</span> Cost-Saving vs. 📈 <span>$8,000+:</span> Profit Generation</h2>
+                <p class="section-subtitle">Don't guess your tier. We will forecast your Operational Savings (Strategic Tier) versus your Potential LTV Growth (Intelligence Tier) so you can choose based on predictable profit, not just price.</p>
+                
+                <div class="comparison-grid">
+                    <!-- Cost Saving Column -->
+                    <div class="comparison-column cost-saving fade-in">
+                        <div class="column-header">
+                            <div class="column-badge">Operational Savings Path</div>
+                            <div class="column-price">$3,500/mo</div>
+                            <h3 class="column-title">Strategic Tier Focus</h3>
+                        </div>
+                        
+                        <ul class="column-features">
+                            <li><i class="fas fa-check"></i> <strong>Fix leaking budgets</strong> in underperforming channels</li>
+                            <li><i class="fas fa-check"></i> <strong>Automate manual processes</strong> wasting team hours</li>
+                            <li><i class="fas fa-check"></i> <strong>Consolidate fragmented tools</strong> into one system</li>
+                            <li><i class="fas fa-check"></i> <strong>Establish clear attribution</strong> for all marketing spend</li>
+                            <li><i class="fas fa-check"></i> <strong>Build foundational data systems</strong> for future growth</li>
+                        </ul>
+                        
+                        <p style="color: var(--dark-gray); margin-bottom: 25px; font-style: italic;">
+                            <strong>Ideal for:</strong> Businesses spending $10k+/mo on marketing with unclear ROI, or teams wasting 20%+ time on manual tasks.
+                        </p>
+                        
+                        <a href="#book-audit" class="column-cta" data-path="cost-saving">
+                            Audit My Cost-Saving Potential
+                        </a>
+                    </div>
+                    
+                    <!-- Profit Generation Column -->
+                    <div class="comparison-column profit-generation fade-in delay-1">
+                        <div class="column-header">
+                            <div class="column-badge">Revenue Growth Path</div>
+                            <div class="column-price">$8,000+/mo</div>
+                            <h3 class="column-title">Intelligence Tier Focus</h3>
+                        </div>
+                        
+                        <ul class="column-features">
+                            <li><i class="fas fa-check"></i> <strong>Predict customer lifetime value</strong> with 90%+ accuracy</li>
+                            <li><i class="fas fa-check"></i> <strong>Identify churn risks</strong> 60 days before they happen</li>
+                            <li><i class="fas fa-check"></i> <strong>Optimize for LTV</strong>, not just acquisition cost</li>
+                            <li><i class="fas fa-check"></i> <strong>Automate personalized journeys</strong> at scale</li>
+                            <li><i class="fas fa-check"></i> <strong>Leverage predictive analytics</strong> for strategic decisions</li>
+                        </ul>
+                        
+                        <p style="color: var(--dark-gray); margin-bottom: 25px; font-style: italic;">
+                            <strong>Ideal for:</strong> Businesses with 500+ customers, LTV > $1k, or looking to scale predictably with data-driven decisions.
+                        </p>
+                        
+                        <a href="#book-audit" class="column-cta" data-path="profit-generation">
+                            Audit My Growth Potential
+                        </a>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 60px;">
+                    <p style="font-size: 1.3rem; font-weight: 600; color: var(--primary-dark); max-width: 800px; margin: 0 auto 30px;">
+                        Let us predict your ROI before you spend a dime.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section" id="book-audit">
+        <div class="container">
+            <h2 class="booking-title">Stop Comparing Packages.<br>Start With a Data-Driven Diagnosis.</h2>
+            <p class="booking-subtitle">In your 45-minute audit, we'll forecast your operational savings and potential LTV growth, so you can decide based on profit, not price.</p>
+            
+            <div class="booking-form-container fade-in">
+                <h3 class="form-title">Book Your Custom ROI Audit</h3>
+                <p class="form-subtitle">Complete this form to schedule your free, no-obligation audit. We'll prepare a preliminary analysis before our meeting.</p>
+                
+                <form class="booking-form" id="auditBookingForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span style="color: #ff4757;">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span style="color: #ff4757;">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input type="url" id="website" name="website" placeholder="https://">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="monthlyMarketing">Current Monthly Marketing Spend</label>
+                        <select id="monthlyMarketing" name="monthlyMarketing">
+                            <option value="">Select range</option>
+                            <option value="Under $5k">Under $5,000</option>
+                            <option value="$5k - $10k">$5,000 - $10,000</option>
+                            <option value="$10k - $25k">$10,000 - $25,000</option>
+                            <option value="$25k - $50k">$25,000 - $50,000</option>
+                            <option value="$50k+">$50,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerCount">Approximate Customer Count</label>
+                        <select id="customerCount" name="customerCount">
+                            <option value="">Select range</option>
+                            <option value="Under 100">Under 100</option>
+                            <option value="100 - 500">100 - 500</option>
+                            <option value="500 - 1,000">500 - 1,000</option>
+                            <option value="1,000 - 5,000">1,000 - 5,000</option>
+                            <option value="5,000+">5,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="primaryGoal">Primary Goal for the Next 90 Days <span style="color: #ff4757;">*</span></label>
+                        <select id="primaryGoal" name="primaryGoal" required>
+                            <option value="">Select your primary goal</option>
+                            <option value="Reduce marketing waste">Reduce marketing waste/improve efficiency</option>
+                            <option value="Increase lead quality">Increase lead quality & conversion</option>
+                            <option value="Scale predictably">Scale revenue predictably</option>
+                            <option value="Improve LTV">Improve customer lifetime value</option>
+                            <option value="Automate processes">Automate marketing/sales processes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="biggestChallenge">Biggest Marketing/Sales Challenge Right Now <span style="color: #ff4757;">*</span></label>
+                        <textarea id="biggestChallenge" name="biggestChallenge" required placeholder="Describe your current challenge in 1-2 sentences..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        Schedule My Free ROI Audit
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span>X</span>5<span class="x5">X5</span>
+                    </a>
+                    <p class="footer-about">X5 provides US SMEs with an AI-powered revenue department—a full-stack, embedded team that delivers strategy and execution at 1/3 the cost of a single US hire.</p>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Packages</h3>
+                    <ul class="footer-links">
+                        <li><a href="#strategic">Strategic Tier</a></li>
+                        <li><a href="#full-stack">Full Stack Tier</a></li>
+                        <li><a href="#intelligence">Intelligence Suite</a></li>
+                        <li><a href="#audit">ROI Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/contact">Process & Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-globe" style="margin-right: 8px;"></i> Global Team</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Base: Vietnam</li>
+                        <li><i class="fas fa-clock" style="margin-right: 8px;"></i> US Timezone Coverage</li>
+                        <li><a href="#book-audit"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book Free Audit</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 X5 Growth System. All rights reserved. | Stop Paying for Overheads. Start Paying for Performance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Form submission
+        const auditBookingForm = document.getElementById('auditBookingForm');
+        
+        auditBookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(auditBookingForm);
+            const data = Object.fromEntries(formData);
+            
+            // In a real implementation, you would send this to your server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for booking your Custom ROI Audit! We will contact you within 24 hours to schedule the session and send preparation materials.');
+            
+            // Reset form
+            auditBookingForm.reset();
+            
+            // Scroll to top of form section
+            document.getElementById('book-audit').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Package CTA clicks - track which package user is interested in
+        const packageCtas = document.querySelectorAll('.package-cta, .column-cta');
+        
+        packageCtas.forEach(cta => {
+            cta.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const packageName = cta.getAttribute('data-package') || cta.getAttribute('data-path');
+                
+                // Scroll to booking form
+                document.getElementById('book-audit').scrollIntoView({ behavior: 'smooth' });
+                
+                // In a real implementation, you might pre-fill a field or track this selection
+                console.log(`User interested in: ${packageName}`);
+                
+                // Optional: Highlight the relevant option in the form
+                if (packageName === 'cost-saving') {
+                    document.getElementById('primaryGoal').value = 'Reduce marketing waste';
+                } else if (packageName === 'profit-generation') {
+                    document.getElementById('primaryGoal').value = 'Improve LTV';
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for scroll animations
+        document.querySelectorAll('.package-card, .comparison-column, .audit-reason, .booking-form-container').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only smooth scroll for on-page anchors
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
