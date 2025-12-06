@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process & Contact | X5 Growth System - Your AI-Powered Revenue Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a2540;
+            --primary-blue: #0057ff;
+            --primary-accent: #00d4aa;
+            --secondary-blue: #00b8ff;
+            --light-bg: #f8fafc;
+            --light-gray: #e2e8f0;
+            --medium-gray: #94a3b8;
+            --dark-gray: #475569;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .logo .x5 {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section - Process/Contact */
+        .contact-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .contact-hero::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
+        }
+
+        .contact-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .contact-hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .contact-hero-cta {
+            display: inline-block;
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 18px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .contact-hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
+        .contact-hero-cta i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-hero-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-dark);
+        }
+
+        .section-title span {
+            color: var(--primary-blue);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        /* Process Steps Section */
+        .process-steps-section {
+            background-color: var(--light-bg);
+        }
+
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-accent));
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .process-timeline::before {
+                left: 30px;
+            }
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 768px) {
+            .process-step, .process-step:nth-child(odd), .process-step:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
+            position: relative;
+            z-index: 3;
+        }
+
+        @media (max-width: 768px) {
+            .step-number {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+                margin-bottom: 30px;
+                margin-left: 0;
+            }
+        }
+
+        .step-content {
+            flex: 1;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin: 0 40px;
+            transition: var(--transition);
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .step-content {
+                margin: 0 0 0 30px;
+                width: calc(100% - 60px);
+            }
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .step-title i {
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+        }
+
+        .step-description {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .step-highlights {
+            background-color: rgba(0, 87, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .step-highlights h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .step-highlights ul {
+            list-style: none;
+        }
+
+        .step-highlights li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-highlights i {
+            color: var(--primary-accent);
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Social Proof Section */
+        .social-proof-section {
+            background-color: var(--white);
+        }
+
+        .social-proof-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-bg);
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "\201C";
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 6rem;
+            color: rgba(0, 87, 255, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .author-info p {
+            color: var(--dark-gray);
+        }
+
+        .tools-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .tool-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .tool-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background-color: var(--light-bg);
+        }
+
+        .contact-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .form-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .form-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .contact-form-wrapper {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .form-group.full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .form-group label .required {
+            color: #ff4757;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--light-bg);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 87, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .submit-btn:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 87, 255, 0.3);
+        }
+
+        .submit-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .form-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .form-note a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            background-color: var(--white);
+        }
+
+        .contact-info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .contact-info-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .info-card {
+            background-color: var(--light-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .info-card p {
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .info-note {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--primary-accent);
+        }
+
+        .footer-logo .x5 {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .footer-about {
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .contact-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .mobile-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-links {
+                list-style: none;
+            }
+            
+            .mobile-links li {
+                margin-bottom: 15px;
+            }
+            
+            .mobile-links a {
+                text-decoration: none;
+                color: var(--primary-dark);
+                font-weight: 500;
+                font-size: 1.1rem;
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .testimonial-card {
+                padding: 40px 30px;
+            }
+            
+            .contact-form-wrapper {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-hero {
+                padding: 150px 0 80px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .step-content {
+                padding: 30px;
+            }
+            
+            .tools-logos {
+                gap: 30px;
+            }
+            
+            .tool-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <span>X</span>5<span class="x5">X5</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/packages">Packages</a></li>
+                    <li><a href="/contact" class="active">Process & Contact</a></li>
+                </ul>
+                
+                <a href="#contact-form" class="nav-cta" id="book-audit-nav">Apply for Free Audit</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <ul class="mobile-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/packages">Packages</a></li>
+                    <li><a href="/contact" class="active">Process & Contact</a></li>
+                    <li><a href="#contact-form" class="nav-cta" id="book-audit-mobile">Apply for Free Audit</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section - Process/Contact -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content fade-in">
+                <h1>Your Path to a Predictable Revenue Engine</h1>
+                <p class="contact-hero-subtitle">Our proven 3-step audit process eliminates guesswork and provides you with a clear, data-driven roadmap to transform your marketing into a measurable revenue center.</p>
+                <a href="#contact-form" class="contact-hero-cta" id="hero-cta">
+                    Apply for Your Free Performance Audit
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps Section -->
+    <section class="process-steps-section">
+        <div class="container">
+            <h2 class="section-title">The X5 Audit Process: <span>Transparency Before Transformation</span></h2>
+            <p class="section-subtitle">We don't start with sales pitches. We start with understanding, analysis, and a clear path forward.</p>
+            
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-file-alt"></i> Deep-Dive Questionnaire & Discovery</h3>
+                        <p class="step-description">You share your goals, challenges, and current marketing data. We analyze your tech stack, past performance, and market positioning to understand your unique context.</p>
+                        <div class="step-highlights">
+                            <h4>What You'll Provide:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Current marketing spend</strong> and ROI data</li>
+                                <li><i class="fas fa-check"></i> <strong>Business goals</strong> for the next 90-180 days</li>
+                                <li><i class="fas fa-check"></i> <strong>Access to analytics</strong> (Google Analytics, ad accounts)</li>
+                                <li><i class="fas fa-check"></i> <strong>Team structure</strong> and current bottlenecks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step fade-in delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-desktop"></i> Live System Demo & Gap Analysis</h3>
+                        <p class="step-description">We show you the X5 system in action and map it against your specific gaps and opportunities. No theory—just screens, workflows, and real examples.</p>
+                        <div class="step-highlights">
+                            <h4>What You'll See:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Live demo</strong> of the X5 5-Layer System</li>
+                                <li><i class="fas fa-check"></i> <strong>Gap analysis</strong> showing where you're leaking revenue</li>
+                                <li><i class="fas fa-check"></i> <strong>n8n automation</strong> workflows that could apply to you</li>
+                                <li><i class="fas fa-check"></i> <strong>Competitive analysis</strong> of your market position</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step fade-in delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-chart-line"></i> Custom ROI Forecast & Tier Recommendation</h3>
+                        <p class="step-description">You receive a 90-day action plan with projected operational savings and revenue growth. We recommend the precise X5 tier based on your ROI potential, not our sales goals.</p>
+                        <div class="step-highlights">
+                            <h4>What You'll Receive:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Custom ROI forecast</strong> with conservative & aggressive scenarios</li>
+                                <li><i class="fas fa-check"></i> <strong>90-day action plan</strong> with clear milestones</li>
+                                <li><i class="fas fa-check"></i> <strong>Tier recommendation</strong> based on your LTV & operational maturity</li>
+                                <li><i class="fas fa-check"></i> <strong>Zero obligation</strong> to proceed—just clarity on your path forward</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 80px;">
+                <p style="font-size: 1.3rem; font-weight: 600; color: var(--primary-dark); max-width: 800px; margin: 0 auto 30px;">
+                    Ready to start with Step 1? Complete the form below to begin your audit process.
+                </p>
+                <a href="#contact-form" class="nav-cta" style="font-size: 1.1rem; padding: 16px 32px;">
+                    Start Your Audit Now
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+        <div class="container">
+            <div class="social-proof-container">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"After wasting $40k on agencies that delivered pretty decks but zero execution, X5 was a revelation. Within 60 days, they had automated 80% of our manual reporting, set up predictive scoring for our leads, and increased our qualified meetings by 47%. They're not an agency—they're the revenue department we never had."</p>
+                    
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MS</div>
+                        <div class="author-info">
+                            <h4>Michael Stevens</h4>
+                            <p>CEO, TechScale Solutions (SaaS, 45 employees)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-subtitle" style="margin-bottom: 40px;">
+                    <strong>We work in your tools, not ours.</strong> Here are some of the platforms we specialize in:
+                </div>
+                
+                <div class="tools-logos">
+                    <div class="tool-logo fade-in">
+                        <div class="tool-icon">
+                            <i class="fab fa-slack"></i>
+                        </div>
+                        <div class="tool-name">Slack</div>
+                    </div>
+                    
+                    <div class="tool-logo fade-in delay-1">
+                        <div class="tool-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="tool-name">Asana</div>
+                    </div>
+                    
+                    <div class="tool-logo fade-in delay-2">
+                        <div class="tool-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="tool-name">n8n</div>
+                    </div>
+                    
+                    <div class="tool-logo fade-in">
+                        <div class="tool-icon">
+                            <i class="fas fa-hubspot"></i>
+                        </div>
+                        <div class="tool-name">HubSpot</div>
+                    </div>
+                    
+                    <div class="tool-logo fade-in delay-1">
+                        <div class="tool-icon">
+                            <i class="fab fa-salesforce"></i>
+                        </div>
+                        <div class="tool-name">Salesforce</div>
+                    </div>
+                    
+                    <div class="tool-logo fade-in delay-2">
+                        <div class="tool-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="tool-name">Google Ads</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="contact-form-container">
+                <div class="form-intro fade-in">
+                    <h2 class="form-title">Apply for Your Free Performance Audit</h2>
+                    <p class="form-subtitle">This audit is for US SMEs serious about transforming their marketing into a measurable revenue center. We respect your time and will come prepared with data and insights.</p>
+                </div>
+                
+                <div class="contact-form-wrapper fade-in delay-1">
+                    <form class="contact-form" id="auditApplicationForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" id="companyName" name="companyName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="companySize">Company Size</label>
+                            <select id="companySize" name="companySize">
+                                <option value="">Select size</option>
+                                <option value="1-10">1-10 employees</option>
+                                <option value="11-50">11-50 employees</option>
+                                <option value="51-200">51-200 employees</option>
+                                <option value="201-500">201-500 employees</option>
+                                <option value="501+">501+ employees</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry" name="industry">
+                                <option value="">Select industry</option>
+                                <option value="SaaS">SaaS/Tech</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="Professional Services">Professional Services</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Education">Education</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="challenge">What is your single biggest marketing challenge right now? <span class="required">*</span></label>
+                            <textarea id="challenge" name="challenge" required placeholder="E.g., High customer acquisition costs, lack of marketing automation, difficulty measuring ROI, inconsistent lead flow, manual reporting taking too much time..."></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="goals">Primary business goals for the next 90 days <span class="required">*</span></label>
+                            <textarea id="goals" name="goals" required placeholder="E.g., Increase qualified leads by 30%, reduce customer acquisition cost by 25%, implement marketing automation, improve customer retention..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            Submit Application for Free Audit
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        
+                        <div class="form-note">
+                            <p>By submitting this form, you agree to our <a href="#">Privacy Policy</a>. We'll contact you within 24 hours to schedule your audit. No spam, ever.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch <span>Directly</span></h2>
+            <p class="section-subtitle">Have questions before applying? Here's how to reach us.</p>
+            
+            <div class="contact-info-grid">
+                <div class="info-card fade-in">
+                    <div class="info-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Schedule a Call</h3>
+                    <p><strong>Direct calendar link:</strong></p>
+                    <p><a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Book 15-min intro call</a></p>
+                    <p class="info-note">For quick questions before the formal audit application</p>
+                </div>
+                
+                <div class="info-card fade-in delay-1">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p><strong>General inquiries:</strong></p>
+                    <p><a href="mailto:hello@x5growth.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">hello@x5growth.com</a></p>
+                    <p><strong>Partnerships:</strong></p>
+                    <p><a href="mailto:partners@x5growth.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">partners@x5growth.com</a></p>
+                </div>
+                
+                <div class="info-card fade-in delay-2">
+                    <div class="info-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Our Global Team</h3>
+                    <p><strong>Base:</strong> Vietnam (for elite talent & operational efficiency)</p>
+                    <p><strong>Coverage:</strong> US Timezones (EST, CST, PST)</p>
+                    <p><strong>Languages:</strong> English (fluent), Vietnamese</p>
+                    <p class="info-note">We work US hours for seamless collaboration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span>X</span>5<span class="x5">X5</span>
+                    </a>
+                    <p class="footer-about">X5 provides US SMEs with an AI-powered revenue department—a full-stack, embedded team that delivers strategy and execution at 1/3 the cost of a single US hire.</p>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Process</h3>
+                    <ul class="footer-links">
+                        <li><a href="#step1">Discovery Questionnaire</a></li>
+                        <li><a href="#step2">System Demo</a></li>
+                        <li><a href="#step3">ROI Forecast</a></li>
+                        <li><a href="#contact-form">Apply for Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/contact">Process & Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-globe" style="margin-right: 8px;"></i> Global Team</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Base: Vietnam</li>
+                        <li><i class="fas fa-clock" style="margin-right: 8px;"></i> US Timezone Coverage</li>
+                        <li><a href="#contact-form"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Apply for Audit</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 X5 Growth System. All rights reserved. | Your Path to a Predictable Revenue Engine</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Form submission
+        const auditApplicationForm = document.getElementById('auditApplicationForm');
+        
+        auditApplicationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(auditApplicationForm);
+            const data = Object.fromEntries(formData);
+            
+            // Validate form
+            if (!data.fullName || !data.email || !data.challenge || !data.goals) {
+                alert('Please fill in all required fields marked with *');
+                return;
+            }
+            
+            // In a real implementation, you would send this to your server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for applying for your Free Performance Audit! We will review your application and contact you within 24 hours to schedule the first step.');
+            
+            // Reset form
+            auditApplicationForm.reset();
+            
+            // Scroll to top of form section
+            document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only smooth scroll for on-page anchors
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for scroll animations
+        document.querySelectorAll('.process-step, .testimonial-card, .tool-logo, .form-intro, .contact-form-wrapper, .info-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Form input validation
+        const formInputs = document.querySelectorAll('#auditApplicationForm input, #auditApplicationForm textarea, #auditApplicationForm select');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.hasAttribute('required') && !input.value) {
+                    input.style.borderColor = '#ff4757';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            input.addEventListener('input', () => {
+                if (input.value) {
+                    input.style.borderColor = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
