@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How X5 Works | Your AI-Powered Revenue Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a2540;
+            --primary-blue: #0057ff;
+            --primary-accent: #00d4aa;
+            --secondary-blue: #00b8ff;
+            --light-bg: #f8fafc;
+            --light-gray: #e2e8f0;
+            --medium-gray: #94a3b8;
+            --dark-gray: #475569;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .logo .x5 {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background-color: #0045cc;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section - How It Works */
+        .how-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-hero::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
+        }
+
+        .how-hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .how-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .how-hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .how-hero-cta {
+            display: inline-block;
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 18px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .how-hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
+        .how-hero-cta i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .how-hero-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-dark);
+        }
+
+        .section-title span {
+            color: var(--primary-blue);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        /* 5 Layers Section */
+        .layers-section {
+            background-color: var(--light-bg);
+        }
+
+        .layers-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .layer {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border-left: 5px solid var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .layer:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .layer-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 87, 255, 0.3);
+        }
+
+        .layer-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .layer-title i {
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+        }
+
+        .layer-description {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .layer-features {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .layer-features li {
+            background-color: rgba(0, 87, 255, 0.1);
+            color: var(--primary-blue);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* 4-Step Process Section */
+        .process-section {
+            background-color: var(--white);
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .process-step.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+            background-color: var(--light-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .step-title i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .step-description {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .step-guarantee {
+            background-color: rgba(0, 212, 170, 0.1);
+            border-left: 4px solid var(--primary-accent);
+            padding: 15px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-top: 20px;
+        }
+
+        .step-guarantee strong {
+            color: var(--primary-dark);
+        }
+
+        /* Bridging the Gap Section */
+        .bridging-section {
+            background-color: var(--light-bg);
+        }
+
+        .bridging-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 992px) {
+            .bridging-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .bridging-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .bridging-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .bridging-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            color: white;
+        }
+
+        .bridging-card:nth-child(1) .bridging-icon {
+            background: linear-gradient(135deg, #0057ff, #00b8ff);
+        }
+        
+        .bridging-card:nth-child(2) .bridging-icon {
+            background: linear-gradient(135deg, #00d4aa, #00b8ff);
+        }
+
+        .bridging-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .bridging-subtitle {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .bridging-card p {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .roles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .role-tag {
+            background-color: rgba(0, 87, 255, 0.1);
+            color: var(--primary-blue);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .outcome {
+            background-color: rgba(0, 212, 170, 0.1);
+            padding: 15px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* CEO Section */
+        .ceo-section {
+            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius);
+            padding: 80px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ceo-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .ceo-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        .ceo-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .ceo-feature {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 700;
+            padding: 20px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 87, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 87, 255, 0.4);
+        }
+
+        .cta-button i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--primary-accent);
+        }
+
+        .footer-logo .x5 {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .footer-about {
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .how-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .mobile-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-links {
+                list-style: none;
+            }
+            
+            .mobile-links li {
+                margin-bottom: 15px;
+            }
+            
+            .mobile-links a {
+                text-decoration: none;
+                color: var(--primary-dark);
+                font-weight: 500;
+                font-size: 1.1rem;
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .process-step, .process-step.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .how-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .how-hero {
+                padding: 150px 0 80px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .layer {
+                padding: 30px 20px 30px 30px;
+            }
+            
+            .layer-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                top: -15px;
+                left: -15px;
+            }
+            
+            .ceo-section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Booking Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+
+        .modal h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .modal p {
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0045cc;
+        }
+
+        .required {
+            color: #ff4757;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <span>X</span>5<span class="x5">X5</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/how-it-works" class="active">How It Works</a></li>
+                    <li><a href="/packages">Packages</a></li>
+                    <li><a href="/contact">Process & Contact</a></li>
+                </ul>
+                
+                <a href="#book-audit" class="nav-cta" id="book-audit-nav">Book Free Audit</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="container">
+                <ul class="mobile-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/how-it-works" class="active">How It Works</a></li>
+                    <li><a href="/packages">Packages</a></li>
+                    <li><a href="/contact">Process & Contact</a></li>
+                    <li><a href="#book-audit" class="nav-cta" id="book-audit-mobile">Book Free Audit</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section - How It Works -->
+    <section class="how-hero">
+        <div class="container">
+            <div class="how-hero-content fade-in">
+                <h1>The X5 System: Strategy Meets Guaranteed Execution.</h1>
+                <p class="how-hero-subtitle">We eliminate the agency middle layer and the execution gap using proprietary technology and a client-controlled workflow.</p>
+                <a href="#book-audit" class="how-hero-cta" id="hero-cta">
+                    Request Your Free System Demo & Audit
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 Layers Section -->
+    <section class="layers-section">
+        <div class="container">
+            <h2 class="section-title">The X5 Revenue System: <span>5 Layers of Engineered Growth</span></h2>
+            <p class="section-subtitle">Each layer builds upon the previous one, creating a complete revenue generation system that operates like a well-oiled machine.</p>
+            
+            <div class="layers-container">
+                <!-- Layer 5 -->
+                <div class="layer fade-in">
+                    <div class="layer-number">5</div>
+                    <h3 class="layer-title"><i class="fas fa-brain"></i> Revenue Intelligence</h3>
+                    <p class="layer-description">Predictive analytics and data-driven decision making at the executive level. This is where strategy meets science.</p>
+                    <ul class="layer-features">
+                        <li>Predictive LTV Modeling</li>
+                        <li>Churn Risk Forecasting</li>
+                        <li>ROI Mapping & Optimization</li>
+                        <li>Market Trend Analysis</li>
+                    </ul>
+                </div>
+                
+                <!-- Layer 4 -->
+                <div class="layer fade-in delay-1">
+                    <div class="layer-number">4</div>
+                    <h3 class="layer-title"><i class="fas fa-robot"></i> AI Automation & Agent</h3>
+                    <p class="layer-description">Intelligent automation that handles repetitive tasks and decision-making, freeing your team for strategic work.</p>
+                    <ul class="layer-features">
+                        <li>AI Content Generation</li>
+                        <li>24/7 Chat & Support Agents</li>
+                        <li>Workflow Automation</li>
+                        <li>n8n Automation Flows</li>
+                    </ul>
+                </div>
+                
+                <!-- Layer 3 -->
+                <div class="layer fade-in delay-2">
+                    <div class="layer-number">3</div>
+                    <h3 class="layer-title"><i class="fas fa-cogs"></i> Revenue Operations (RevOps)</h3>
+                    <p class="layer-description">Aligning sales, marketing, and customer success with shared data, processes, and goals.</p>
+                    <ul class="layer-features">
+                        <li>Data Synchronization</li>
+                        <li>Attribution Tracking</li>
+                        <li>Sales-Marketing Alignment</li>
+                        <li>CRM Integration (HubSpot/Salesforce)</li>
+                    </ul>
+                </div>
+                
+                <!-- Layer 2 -->
+                <div class="layer fade-in delay-1">
+                    <div class="layer-number">2</div>
+                    <h3 class="layer-title"><i class="fas fa-bullhorn"></i> MarTech Execution</h3>
+                    <p class="layer-description">Multi-channel marketing execution with constant optimization based on performance data.</p>
+                    <ul class="layer-features">
+                        <li>Paid Ads Management</li>
+                        <li>Social Media Strategy</li>
+                        <li>SEO & Content Strategy</li>
+                        <li>Email Nurturing Sequences</li>
+                    </ul>
+                </div>
+                
+                <!-- Layer 1 -->
+                <div class="layer fade-in">
+                    <div class="layer-number">1</div>
+                    <h3 class="layer-title"><i class="fas fa-database"></i> Foundation & Data</h3>
+                    <p class="layer-description">The essential infrastructure that ensures data accuracy, compliance, and integrity across all systems.</p>
+                    <ul class="layer-features">
+                        <li>CDP Principles Implementation</li>
+                        <li>Tracking & Analytics Setup</li>
+                        <li>Compliance (GDPR, CCPA)</li>
+                        <li>Data Integrity & Governance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Step Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">The Client-Controlled <span>Performance Loop</span></h2>
+            <p class="section-subtitle">Our 4-step agile process guarantees strategic alignment and total transparency. You're in the driver's seat at every stage.</p>
+            
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-search"></i> Insight & Strategic Vetting: X5 Consults, You Veto</h3>
+                        <p class="step-description">X5 uses AI and data analytics to generate a Data-Backed Recommendation (Actionable Plan). You, the client, review and provide Mandatory Approval before execution. We never touch your budget without your explicit green light.</p>
+                        <div class="step-guarantee">
+                            <strong>Your Control:</strong> Complete veto power. No action is taken without your written approval.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step reverse fade-in delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-project-diagram"></i> Automation Blueprint: Transforming Strategy into System</h3>
+                        <p class="step-description">We convert the approved plan into n8n Automation Flows (Layer 4). This step guarantees speed, system reliability, and reduces human error. The guarantee: Your strategy becomes a permanent, self-regulating system that works 24/7.</p>
+                        <div class="step-guarantee">
+                            <strong>Our Guarantee:</strong> Your strategy becomes a permanent, self-regulating system.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step fade-in delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-play-circle"></i> Execution & Direct Management: Full Control</h3>
+                        <p class="step-description">Your Embedded X5 Team executes tasks on your Client-Owned Accounts. You serve as the Direct Manager to your Account Strategist via Slack and your project management tool (Asana/ClickUp).</p>
+                        <div class="step-guarantee">
+                            <strong>Commitment:</strong> You retain 100% account ownership and management control.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step reverse fade-in delay-3">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title"><i class="fas fa-chart-line"></i> Revenue Review & Guaranteed Pivot: Adaptability</h3>
+                        <p class="step-description">We deliver performance reviews focused on Revenue KPIs (LTV, ROI). You provide new market feedback, and X5 commits to adjust the strategy and automation logic completely without additional fees.</p>
+                        <div class="step-guarantee">
+                            <strong>Commitment:</strong> Pivot Guarantee. Zero Scope Creep Fees for necessary strategic changes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.2rem; color: var(--dark-gray); max-width: 800px; margin: 0 auto 30px;">
+                    <strong>Your first meeting is Step 1: Insight & Strategic Vetting.</strong> We start with understanding, not selling.
+                </p>
+                <a href="#book-audit" class="cta-button" style="display: inline-block;">
+                    Start Your Audit Now
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridging the Gap Section -->
+    <section class="bridging-section">
+        <div class="container">
+            <h2 class="section-title">Bridging the Gap: <span>Where Technology Meets Brand Expertise</span></h2>
+            <p class="section-subtitle">Unlike traditional agencies that separate strategy from execution, X5 integrates both through a dual-team approach that reports directly to you.</p>
+            
+            <div class="bridging-grid">
+                <!-- Technology Engine -->
+                <div class="bridging-card fade-in">
+                    <div class="bridging-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>The Technology Engine</h3>
+                    <div class="bridging-subtitle">(The HOW)</div>
+                    <p>Guarantees speed, data accuracy, and cost-efficiency through automation and systematic processes.</p>
+                    
+                    <div class="roles">
+                        <span class="role-tag">Automation Specialist</span>
+                        <span class="role-tag">RevOps Analyst</span>
+                        <span class="role-tag">Data Engineer</span>
+                    </div>
+                    
+                    <div class="outcome">
+                        Outcome: Reduces human resource overhead by 80% through intelligent automation.
+                    </div>
+                </div>
+                
+                <!-- Marketing Brain -->
+                <div class="bridging-card fade-in delay-1">
+                    <div class="bridging-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>The Marketing Brain</h3>
+                    <div class="bridging-subtitle">(The WHAT)</div>
+                    <p>Guarantees Brand Alignment, Creative Velocity, and Market Strategy that resonates with your audience.</p>
+                    
+                    <div class="roles">
+                        <span class="role-tag">Account Strategist</span>
+                        <span class="role-tag">Brand Storyteller</span>
+                        <span class="role-tag">Content Strategist</span>
+                    </div>
+                    
+                    <div class="outcome">
+                        Outcome: Ensures all technical execution supports your Brand's voice and revenue goals.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="ceo-section">
+        <div class="container">
+            <h2 class="ceo-title">You Are the CEO of Your Marketing Team</h2>
+            <p class="ceo-subtitle">We just happen to sit outside the US. No account manager. No tickets. No middleman. Full authority from Day 1.</p>
+            
+            <div class="ceo-features">
+                <span class="ceo-feature">Direct Management via Slack</span>
+                <span class="ceo-feature">100% Account Ownership</span>
+                <span class="ceo-feature">Veto Power on All Moves</span>
+                <span class="ceo-feature">Transparent Workflows</span>
+                <span class="ceo-feature">No Hidden Fees</span>
+                <span class="ceo-feature">Pivot Guarantee</span>
+            </div>
+            
+            <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.9);">
+                Your X5 team works <strong>in your tools, on your schedule, toward your KPIs</strong>. We're an extension of your team, not a separate agency.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="book-audit">
+        <div class="container">
+            <h2 class="cta-title">Ready to See How the X5 System Works for Your Business?</h2>
+            <p class="cta-subtitle">In your free System Demo & Audit, we'll show you exactly how the 5 layers and 4-step process would apply to your specific business challenges and goals.</p>
+            <a href="#book-audit-modal" class="cta-button" id="final-cta">
+                Book Your Live System Demo & Audit
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span>X</span>5<span class="x5">X5</span>
+                    </a>
+                    <p class="footer-about">X5 provides US SMEs with an AI-powered revenue department—a full-stack, embedded team that delivers strategy and execution at 1/3 the cost of a single US hire.</p>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a href="#layers">5-Layer System</a></li>
+                        <li><a href="#process">4-Step Process</a></li>
+                        <li><a href="#bridging">Dual-Team Approach</a></li>
+                        <li><a href="#ceo">Client Control</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/contact">Process & Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-globe" style="margin-right: 8px;"></i> Global Team</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Base: Vietnam</li>
+                        <li><i class="fas fa-clock" style="margin-right: 8px;"></i> US Timezone Coverage</li>
+                        <li><a href="#book-audit"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book Free Audit</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 X5 Growth System. All rights reserved. | Strategy Meets Guaranteed Execution</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="book-audit-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2>Book Your Live System Demo & Audit</h2>
+            <p>In this 60-minute session, we'll walk you through the X5 System applied to your business, analyze your current setup, and provide a custom ROI forecast.</p>
+            
+            <form id="auditForm">
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://">
+                </div>
+                
+                <div class="form-group">
+                    <label for="challenge">What specific business outcome would you like the X5 System to help you achieve? <span class="required">*</span></label>
+                    <textarea id="challenge" name="challenge" required placeholder="E.g., Increase qualified leads by 30%, reduce customer acquisition cost by 25%, implement marketing automation..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Schedule My System Demo & Audit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Modal functionality
+        const modal = document.getElementById('book-audit-modal');
+        const modalClose = document.getElementById('modalClose');
+        const auditForm = document.getElementById('auditForm');
+        
+        // Open modal when any CTA is clicked
+        const ctas = [
+            document.getElementById('hero-cta'),
+            document.getElementById('final-cta'),
+            document.getElementById('book-audit-nav'),
+            document.getElementById('book-audit-mobile')
+        ];
+        
+        ctas.forEach(cta => {
+            if (cta) {
+                cta.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            }
+        });
+        
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form submission
+        auditForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(auditForm);
+            const data = Object.fromEntries(formData);
+            
+            // In a real implementation, you would send this to your server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for booking your System Demo & Audit! We will contact you within 24 hours to confirm the schedule and send preparation materials.');
+            
+            // Close modal and reset form
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            auditForm.reset();
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for scroll animations
+        document.querySelectorAll('.layer, .process-step, .bridging-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Don't smooth scroll for modal links
+                if (href === '#book-audit-modal') return;
+                
+                // Only smooth scroll for on-page anchors
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Highlight current section in navigation on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // You can add active class to nav links based on current section
+            // This is a simplified version
+        });
+    </script>
+</body>
+</html>
