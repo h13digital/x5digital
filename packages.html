@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packages | X5 Growth System - Your AI-Powered Revenue Department</title>
+    <title>Packages | X5 Growth System - Founding Client Program</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,9 @@
             --primary-blue: #0057ff;
             --primary-accent: #00d4aa;
             --secondary-blue: #00b8ff;
+            --gradient-bg: linear-gradient(135deg, #0a2540 0%, #0057ff 100%);
+            --gradient-accent: linear-gradient(135deg, #00d4aa 0%, #00b8ff 100%);
+            --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
             --light-bg: #f8fafc;
             --light-gray: #e2e8f0;
             --medium-gray: #94a3b8;
@@ -36,6 +39,7 @@
             color: var(--primary-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
         .container {
@@ -45,7 +49,7 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
+        /* ====== HEADER & NAVIGATION ====== */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -76,11 +80,18 @@
         }
 
         .logo .x5 {
-            background-color: var(--primary-blue);
+            background: var(--gradient-accent);
             color: white;
             padding: 2px 8px;
             border-radius: 6px;
             margin-left: 4px;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links {
@@ -94,6 +105,7 @@
             color: var(--dark-gray);
             font-weight: 500;
             transition: var(--transition);
+            position: relative;
         }
 
         .nav-links a:hover {
@@ -105,24 +117,41 @@
             font-weight: 600;
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .nav-cta {
-            background-color: var(--primary-blue);
-            color: white;
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
             border: none;
             padding: 12px 24px;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.2);
         }
 
         .nav-cta:hover {
-            background-color: #0045cc;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.3);
         }
 
+        /* Mobile Navigation */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -130,109 +159,357 @@
             font-size: 24px;
             color: var(--primary-dark);
             cursor: pointer;
+            z-index: 1001;
         }
 
-        /* Hero Section - Packages */
-        .packages-hero {
-            padding: 180px 0 100px;
-            background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--gradient-bg);
+            padding: 80px 30px 30px;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
             color: white;
-            position: relative;
-            overflow: hidden;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-links {
+            list-style: none;
+        }
+
+        .mobile-links li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .mobile-links a:hover {
+            color: var(--primary-accent);
+            padding-left: 10px;
+        }
+
+        .mobile-links a.active {
+            color: var(--primary-accent);
+            font-weight: 600;
+        }
+
+        .mobile-cta {
+            margin-top: 30px;
             text-align: center;
         }
 
-        .packages-hero::before {
-            content: "";
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
+        /* ====== FOUNDING PROGRAM BANNER ====== */
+        .founding-banner {
+            background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+            color: white;
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .packages-hero-content {
-            max-width: 900px;
-            margin: 0 auto;
+        .founding-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 212, 170, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 87, 255, 0.15) 0%, transparent 50%);
+        }
+
+        .banner-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
             position: relative;
             z-index: 2;
         }
 
-        .packages-hero h1 {
-            font-size: 3.5rem;
+        .founding-banner h1 {
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
         }
 
-        .packages-hero-subtitle {
+        .founding-banner-subtitle {
             font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 40px;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.7;
+            position: relative;
+            z-index: 2;
         }
 
-        .packages-hero-cta {
-            display: inline-block;
-            background-color: var(--primary-accent);
-            color: var(--primary-dark);
-            font-weight: 700;
-            padding: 18px 36px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
         }
 
-        .packages-hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: var(--radius);
+            min-width: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .packages-hero-cta i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .packages-hero-cta:hover i {
-            transform: translateX(4px);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
+        .countdown-value {
             font-size: 2.5rem;
             font-weight: 800;
+            color: var(--primary-accent);
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ====== WHY VIETNAM SECTION ====== */
+        .why-vietnam {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .why-vietnam::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0v20h20z" fill="none"/><path d="M0 0h20v20H0z" stroke="%230057ff" stroke-width="0.5" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23a)"/></svg>');
+        }
+
+        .why-vietnam-content {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-vietnam h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
             color: var(--primary-dark);
         }
 
-        .section-title span {
-            color: var(--primary-blue);
+        .why-vietnam-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 50px;
+            line-height: 1.7;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .benefit-card p {
             color: var(--dark-gray);
             line-height: 1.7;
         }
 
-        /* Investment Spectrum Section */
-        .spectrum-section {
-            background-color: var(--light-bg);
+        /* ====== FOUNDING PROGRAM SECTION ====== */
+        .founding-program {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 100px 0;
+            border-top: 1px solid rgba(0, 87, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 87, 255, 0.1);
+        }
+
+        .program-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .program-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .program-header p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .guarantee-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary-accent);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .guarantee-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .guarantee-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+        }
+
+        .guarantee-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .guarantee-card p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .spots-counter {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border: 2px dashed #ff6b6b;
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 40px auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .spots-counter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .spots-counter p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .spots-remaining {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        /* ====== PACKAGES GRID ====== */
+        .packages-grid-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 100px 0;
         }
 
         .packages-grid {
@@ -250,7 +527,7 @@
         }
 
         .package-card {
-            background-color: var(--white);
+            background: var(--gradient-card);
             border-radius: var(--radius);
             padding: 40px 35px;
             box-shadow: var(--shadow);
@@ -259,20 +536,25 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
         .package-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
         }
 
         .package-card.featured {
-            border: 3px solid var(--primary-blue);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            border: 2px solid var(--primary-blue);
             transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 87, 255, 0.15);
         }
 
         .package-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
+            transform: scale(1.05) translateY(-15px);
         }
 
         .package-badge {
@@ -280,7 +562,7 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: var(--primary-accent);
+            background: var(--gradient-accent);
             color: var(--primary-dark);
             padding: 8px 20px;
             border-radius: 30px;
@@ -306,14 +588,15 @@
         }
 
         .package-roi-focus {
-            background-color: rgba(0, 87, 255, 0.1);
+            background: linear-gradient(135deg, rgba(0, 87, 255, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
             color: var(--primary-blue);
-            padding: 12px;
+            padding: 15px;
             border-radius: var(--radius);
             text-align: center;
             margin-bottom: 30px;
             font-weight: 600;
             font-size: 1rem;
+            border-left: 4px solid var(--primary-blue);
         }
 
         .package-price {
@@ -326,6 +609,17 @@
             font-weight: 800;
             color: var(--primary-dark);
             margin-bottom: 5px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--medium-gray);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .founding-price {
+            color: #ff6b6b;
         }
 
         .price-period {
@@ -359,159 +653,140 @@
         .package-cta {
             display: block;
             text-align: center;
-            background-color: var(--primary-blue);
-            color: white;
-            font-weight: 600;
-            padding: 16px;
-            border-radius: 8px;
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 18px;
+            border-radius: 10px;
             text-decoration: none;
             transition: var(--transition);
             margin-top: auto;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .package-cta:hover::before {
+            left: 100%;
         }
 
         .package-cta:hover {
-            background-color: #0045cc;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
         }
 
-        /* Why Audit Section */
-        .audit-section {
-            background-color: var(--white);
-        }
-
-        .audit-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .audit-reason {
-            background-color: rgba(255, 107, 107, 0.1);
-            border-left: 5px solid #ff6b6b;
-            padding: 40px;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            margin-bottom: 60px;
-        }
-
-        .audit-reason h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-
-        .audit-reason p {
-            color: var(--dark-gray);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .comparison-column {
-            background-color: var(--light-bg);
-            border-radius: var(--radius);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .comparison-column:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .column-header {
+        /* ====== PILOT PROGRAM ====== */
+        .pilot-program {
+            background: linear-gradient(135deg, rgba(0, 87, 255, 0.05) 0%, rgba(0, 212, 170, 0.05) 100%);
+            padding: 100px 0;
             text-align: center;
-            margin-bottom: 30px;
+            position: relative;
         }
 
-        .column-badge {
+        .pilot-program::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 87, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 170, 0.08) 0%, transparent 40%);
+        }
+
+        .pilot-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: var(--radius);
+            padding: 60px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .pilot-badge {
             display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
             padding: 10px 25px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
-        .cost-saving .column-badge {
-            background-color: rgba(0, 212, 170, 0.2);
-            color: #008b6e;
-        }
-
-        .profit-generation .column-badge {
-            background-color: rgba(0, 87, 255, 0.2);
-            color: var(--primary-blue);
-        }
-
-        .column-price {
+        .pilot-container h2 {
             font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .column-title {
-            font-size: 1.4rem;
-            font-weight: 700;
             margin-bottom: 20px;
             color: var(--primary-dark);
         }
 
-        .column-features {
-            list-style: none;
+        .pilot-container p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .pilot-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
+        }
+
+        .price-period {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
             margin-bottom: 30px;
         }
 
-        .column-features li {
+        .pilot-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .pilot-features li {
             margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
         }
 
-        .column-features i {
-            margin-right: 10px;
+        .pilot-features i {
+            color: var(--primary-accent);
+            margin-right: 12px;
             margin-top: 3px;
+            font-size: 1.1rem;
             flex-shrink: 0;
         }
 
-        .cost-saving .column-features i {
-            color: #00d4aa;
-        }
-
-        .profit-generation .column-features i {
-            color: var(--primary-blue);
-        }
-
-        .column-cta {
-            display: block;
-            text-align: center;
-            background-color: var(--primary-blue);
-            color: white;
-            font-weight: 600;
-            padding: 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .column-cta:hover {
-            background-color: #0045cc;
-            transform: translateY(-2px);
-        }
-
-        /* Booking Section */
+        /* ====== BOOKING SECTION ====== */
         .booking-section {
-            background-color: var(--light-bg);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 100px 0;
             text-align: center;
+            border-top: 1px solid rgba(0, 87, 255, 0.1);
         }
 
         .booking-title {
@@ -530,12 +805,13 @@
         }
 
         .booking-form-container {
-            background-color: var(--white);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
             border-radius: var(--radius);
             padding: 50px;
             box-shadow: var(--shadow-lg);
             max-width: 800px;
             margin: 0 auto;
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
         .form-title {
@@ -586,6 +862,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
+            background-color: #f8fafc;
         }
 
         .form-group input:focus,
@@ -594,6 +871,7 @@
             outline: none;
             border-color: var(--primary-blue);
             box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+            background-color: white;
         }
 
         .form-group textarea {
@@ -602,8 +880,8 @@
         }
 
         .submit-btn {
-            background-color: var(--primary-blue);
-            color: white;
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
             border: none;
             padding: 18px 40px;
             border-radius: 10px;
@@ -613,12 +891,29 @@
             transition: var(--transition);
             width: 100%;
             grid-column: 1 / -1;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
         .submit-btn:hover {
-            background-color: #0045cc;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 87, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
         }
 
         .submit-btn i {
@@ -630,9 +925,9 @@
             transform: translateX(4px);
         }
 
-        /* Footer */
+        /* ====== FOOTER ====== */
         footer {
-            background-color: #0f172a;
+            background: var(--gradient-bg);
             color: white;
             padding: 60px 0 30px;
         }
@@ -655,6 +950,8 @@
             font-weight: 800;
             margin-bottom: 20px;
             display: inline-block;
+            color: white;
+            text-decoration: none;
         }
 
         .footer-logo span {
@@ -662,7 +959,7 @@
         }
 
         .footer-logo .x5 {
-            background-color: var(--primary-accent);
+            background: var(--gradient-accent);
             color: var(--primary-dark);
             padding: 2px 8px;
             border-radius: 6px;
@@ -670,7 +967,7 @@
         }
 
         .footer-about {
-            color: #94a3b8;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.7;
             margin-bottom: 20px;
         }
@@ -691,7 +988,7 @@
         }
 
         .footer-links a {
-            color: #94a3b8;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -703,22 +1000,15 @@
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
 
-        /* Mobile Responsiveness */
+        /* ====== MOBILE RESPONSIVENESS ====== */
         @media (max-width: 992px) {
-            .packages-hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .nav-links {
+            /* Ẩn desktop nav, hiển thị mobile menu button */
+            .desktop-nav {
                 display: none;
             }
             
@@ -726,85 +1016,221 @@
                 display: block;
             }
             
-            .mobile-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: var(--transition);
-                z-index: 999;
+            /* Banner mobile optimization */
+            .founding-banner h1 {
+                font-size: 2.2rem;
             }
             
-            .mobile-menu.active {
-                transform: translateY(0);
-                opacity: 1;
+            .founding-banner {
+                padding: 120px 0 60px;
             }
             
-            .mobile-links {
-                list-style: none;
-            }
-            
-            .mobile-links li {
-                margin-bottom: 15px;
-            }
-            
-            .mobile-links a {
-                text-decoration: none;
-                color: var(--primary-dark);
-                font-weight: 500;
+            .founding-banner-subtitle {
                 font-size: 1.1rem;
-                display: block;
-                padding: 10px 0;
-                border-bottom: 1px solid var(--light-gray);
+                padding: 0 15px;
+            }
+            
+            /* Countdown mobile */
+            .countdown {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px;
+            }
+            
+            .countdown-value {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            /* Section padding mobile */
+            .why-vietnam, 
+            .founding-program, 
+            .packages-grid-section, 
+            .pilot-program, 
+            .booking-section {
+                padding: 60px 0;
+            }
+            
+            .program-header h2,
+            .why-vietnam h2 {
+                font-size: 1.8rem;
+                padding: 0 15px;
+            }
+            
+            .program-header p,
+            .why-vietnam-subtitle {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            /* Cards mobile */
+            .benefit-card,
+            .guarantee-card {
+                padding: 30px 20px;
+            }
+            
+            .benefit-icon,
+            .guarantee-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            /* Packages grid mobile */
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 15px;
+            }
+            
+            .package-card {
+                padding: 30px 25px;
             }
             
             .package-card.featured {
                 transform: scale(1);
+                order: -1;
             }
             
             .package-card.featured:hover {
                 transform: translateY(-10px);
             }
+            
+            .package-name {
+                font-size: 1.5rem;
+            }
+            
+            .price-amount {
+                font-size: 2rem;
+            }
+            
+            /* Spots counter mobile */
+            .spots-counter {
+                margin: 30px 15px;
+                padding: 25px 20px;
+            }
+            
+            .spots-remaining {
+                font-size: 2.5rem;
+            }
+            
+            /* Pilot program mobile */
+            .pilot-container {
+                padding: 40px 25px;
+                margin: 0 15px;
+            }
+            
+            .pilot-price {
+                font-size: 2.5rem;
+            }
+            
+            /* Booking form mobile */
+            .booking-form-container {
+                padding: 30px 25px;
+                margin: 0 15px;
+            }
+            
+            .booking-title {
+                font-size: 2rem;
+                padding: 0 15px;
+            }
+            
+            .booking-subtitle {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
         }
 
         @media (max-width: 768px) {
-            .packages-hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .section-title {
+            /* Small mobile optimizations */
+            .founding-banner h1 {
                 font-size: 1.8rem;
             }
             
-            .packages-hero {
-                padding: 150px 0 80px;
+            .banner-badge {
+                font-size: 0.8rem;
+                padding: 8px 20px;
             }
             
-            section {
-                padding: 80px 0;
+            .why-vietnam h2,
+            .program-header h2 {
+                font-size: 1.6rem;
             }
             
-            .booking-form-container {
-                padding: 30px 20px;
+            .spots-counter h3 {
+                font-size: 1.5rem;
             }
             
-            .audit-reason {
-                padding: 30px 20px;
+            .pilot-container h2 {
+                font-size: 1.8rem;
+            }
+            
+            .booking-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .benefits-grid,
+            .guarantee-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
-        /* Animation */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .founding-banner h1 {
+                font-size: 1.6rem;
+            }
+            
+            .nav-cta,
+            .package-cta,
+            .submit-btn {
+                width: 100%;
+                text-align: center;
+                padding: 16px;
+            }
+            
+            .mobile-nav {
+                width: 100%;
+            }
+            
+            .countdown {
+                gap: 8px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 10px;
+            }
+            
+            .countdown-value {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ====== ANIMATIONS ====== */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
+            opacity: 0;
             animation: fadeIn 0.8s ease forwards;
         }
 
@@ -822,70 +1248,196 @@
                     <span>X</span>5<span class="x5">X5</span>
                 </a>
                 
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/how-it-works">How It Works</a></li>
-                    <li><a href="/packages" class="active">Packages</a></li>
-                    <li><a href="/contact">Process & Contact</a></li>
-                </ul>
+                <!-- Desktop Navigation -->
+                <div class="desktop-nav">
+                    <ul class="nav-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages" class="active">Packages</a></li>
+                        <li><a href="/contact">Process & Contact</a></li>
+                    </ul>
+                    
+                    <a href="#book-audit" class="nav-cta" id="book-audit-nav">Apply for Founding Rate</a>
+                </div>
                 
-                <a href="#book-audit" class="nav-cta" id="book-audit-nav">Book Free Audit</a>
-                
+                <!-- Mobile Menu Button -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="container">
-                <ul class="mobile-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/how-it-works">How It Works</a></li>
-                    <li><a href="/packages" class="active">Packages</a></li>
-                    <li><a href="/contact">Process & Contact</a></li>
-                    <li><a href="#book-audit" class="nav-cta" id="book-audit-mobile">Book Free Audit</a></li>
-                </ul>
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <button class="mobile-nav-close" id="mobileNavClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <ul class="mobile-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/packages" class="active">Packages</a></li>
+                <li><a href="/contact">Process & Contact</a></li>
+            </ul>
+            
+            <div class="mobile-cta">
+                <a href="#book-audit" class="nav-cta" id="book-audit-mobile">Apply for Founding Rate</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section - Packages -->
-    <section class="packages-hero">
+    <!-- Founding Program Banner -->
+    <section class="founding-banner">
         <div class="container">
-            <div class="packages-hero-content fade-in">
-                <h1>Stop Paying for Overheads.<br>Start Paying for Performance.</h1>
-                <p class="packages-hero-subtitle">Your investment is an ROI projection, not just a monthly cost. We don't sell packages—we prescribe solutions based on your unique growth potential. Let us find your perfect fit.</p>
-                <a href="#book-audit" class="packages-hero-cta" id="hero-cta">
-                    Book Your Custom ROI Audit
-                    <i class="fas fa-arrow-right"></i>
+            <div class="banner-badge fade-in">FOUNDING CLIENT PROGRAM</div>
+            <h1 class="fade-in">From Vietnam to US Market: Building Trust Through Exceptional Value</h1>
+            <p class="founding-banner-subtitle fade-in delay-1">As a Vietnam-based company entering the competitive US market, we're offering unprecedented value to our first 5 US clients. Get enterprise-grade marketing execution at startup-friendly prices while we build our reputation together.</p>
+            
+            <div class="countdown fade-in delay-2">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">05</div>
+                    <div class="countdown-label">Days Left</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="spots">03</div>
+                    <div class="countdown-label">Spots Remaining</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Vietnam Section -->
+    <section class="why-vietnam">
+        <div class="container">
+            <div class="why-vietnam-content">
+                <h2 class="fade-in">Why Choose a Vietnam-Based Team?</h2>
+                <p class="why-vietnam-subtitle fade-in delay-1">We combine US strategic thinking with Vietnam's elite tech talent and cost efficiency. Here's what makes our model work for US businesses:</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3>1/3 the Cost</h3>
+                        <p>Access to Vietnam's top 1% marketing and engineering talent at a fraction of US rates without compromising quality.</p>
+                    </div>
+                    
+                    <div class="benefit-card fade-in delay-1">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>US Timezone Coverage</h3>
+                        <p>We work US business hours (EST, CST, PST) with daily standups and real-time collaboration via Slack.</p>
+                    </div>
+                    
+                    <div class="benefit-card fade-in delay-2">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>US-Educated Leadership</h3>
+                        <p>Our strategy team has US marketing experience and education, ensuring cultural alignment and market understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founding Program Section -->
+    <section class="founding-program">
+        <div class="container">
+            <div class="program-header fade-in">
+                <h2>Founding Client Program: Special Terms for Trust Builders</h2>
+                <p>We understand that trust must be earned. As we establish our reputation in the US market, we're offering our first clients unprecedented guarantees and pricing.</p>
+            </div>
+            
+            <div class="guarantee-grid">
+                <div class="guarantee-card fade-in">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Pilot-First Approach</h3>
+                    <p>Start with a 30-day, single-KPI pilot. Pay only if we deliver measurable results on your most pressing challenge.</p>
+                </div>
+                
+                <div class="guarantee-card fade-in delay-1">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>43% Founding Discount</h3>
+                    <p>Lock in special founding rates that are 43% below our planned US market pricing. This discount is guaranteed for your first 6 months.</p>
+                </div>
+                
+                <div class="guarantee-card fade-in delay-2">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Money-Back Guarantee</h3>
+                    <p>100% refund if we don't hit the KPIs we agree upon in writing. Your risk is limited to the pilot period only.</p>
+                </div>
+            </div>
+            
+            <div class="spots-counter fade-in">
+                <h3>Limited Availability</h3>
+                <p>We're limiting this program to 5 US clients to ensure we can deliver exceptional results while building our case studies.</p>
+                <div class="spots-remaining">3/5</div>
+                <p>Spots remaining - Apply before they're gone</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Program -->
+    <section class="pilot-program">
+        <div class="container">
+            <div class="pilot-container fade-in">
+                <div class="pilot-badge">RISK-FREE ENTRY POINT</div>
+                <h2>Start with a 30-Day Pilot</h2>
+                <p>Prove our value with minimal commitment. We'll focus on one critical KPI that matters most to your business.</p>
+                
+                <div class="pilot-price">$997</div>
+                <p class="price-period">One-time investment for 30 days • 100% money-back guarantee</p>
+                
+                <ul class="pilot-features">
+                    <li><i class="fas fa-check-circle"></i> <span><strong>Single KPI Focus:</strong> We target one specific metric (e.g., reduce CPC by 20%, increase lead quality score by 30%)</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span><strong>Full System Access:</strong> Use of our 5-layer system and n8n automation for your specific goal</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span><strong>Daily Reporting:</strong> Transparent updates on progress toward your KPI</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span><strong>No Long-Term Commitment:</strong> Continue only if we hit or exceed your KPI target</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span><strong>Case Study Priority:</strong> If successful, you get first access to long-term founding rates</span></li>
+                </ul>
+                
+                <a href="#book-audit" class="package-cta" style="max-width: 300px; margin: 0 auto;">
+                    Start with 30-Day Pilot
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Investment Spectrum Section -->
-    <section class="spectrum-section">
+    <!-- Packages Grid -->
+    <section class="packages-grid-section">
         <div class="container">
-            <h2 class="section-title">Don't Choose a Package. <span>Choose a Projected ROI.</span></h2>
-            <p class="section-subtitle">Every business is unique. We perform a free audit to forecast whether your priority is <strong>Operational Savings</strong> or <strong>Revenue Growth</strong>, then recommend the precise tier.</p>
+            <div class="program-header fade-in">
+                <h2>Founding Client Packages</h2>
+                <p>Special pricing available only to our first 5 US clients. Lock in these rates for your first 6 months.</p>
+            </div>
             
             <div class="packages-grid">
                 <!-- Strategic Package -->
                 <div class="package-card fade-in">
-                    <div class="package-badge">COST SAVINGS FOCUS</div>
-                    <h3 class="package-name">Strategic</h3>
-                    <p class="package-subtitle">Dedicated Team & Basic Automation</p>
+                    <div class="package-badge">FOUNDING RATE - 43% OFF</div>
+                    <h3 class="package-name">Growth Foundation</h3>
+                    <p class="package-subtitle">Dedicated Team & Core Automation</p>
                     
                     <div class="package-roi-focus">
-                        Typical Client ROI Focus:<br>
-                        <strong>For brands seeking 30%+ operational efficiency</strong>
+                        Ideal For:<br>
+                        <strong>Startups spending $5k+/mo on marketing</strong>
                     </div>
                     
                     <div class="package-price">
-                        <div class="price-amount">Starting at $3,500</div>
-                        <div class="price-period">per month • Minimum 3-month commitment</div>
+                        <div class="price-amount">
+                            <span class="original-price">$3,500</span>
+                            <span class="founding-price">$1,997</span>
+                        </div>
+                        <div class="price-period">per month • 3-month minimum</div>
                     </div>
                     
                     <div class="package-features">
@@ -895,19 +1447,19 @@
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Management of 2 Core Channels (Ads/Content/Email)</span>
+                            <span>Management of 2 Core Channels</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Full Execution & Performance Reports</span>
+                            <span>Full Execution & Weekly Reports</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Standard n8n Workflows (Data Sync & Reporting)</span>
+                            <span>3 n8n Automation Workflows</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Pivot Guarantee (Zero Scope Creep Fee)</span>
+                            <span>Pivot Guarantee (Zero Scope Creep)</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
@@ -915,26 +1467,29 @@
                         </div>
                     </div>
                     
-                    <a href="#book-audit" class="package-cta" data-package="Strategic">
-                        Book Audit to See If This Is Your Fit
-                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    <a href="#book-audit" class="package-cta" data-package="Growth Foundation">
+                        Lock in Founding Rate
+                        <i class="fas fa-lock" style="margin-left: 8px;"></i>
                     </a>
                 </div>
                 
                 <!-- Full Stack Package -->
                 <div class="package-card featured fade-in delay-1">
-                    <div class="package-badge" style="background-color: var(--primary-blue); color: white;">OPTIMAL PERFORMANCE</div>
-                    <h3 class="package-name">Full Stack</h3>
-                    <p class="package-subtitle">RevOps, Multi-Channel & Advanced Strategy</p>
+                    <div class="package-badge" style="background: var(--primary-blue); color: white;">MOST POPULAR • 46% OFF</div>
+                    <h3 class="package-name">Revenue Accelerator</h3>
+                    <p class="package-subtitle">Multi-Channel & Advanced Automation</p>
                     
                     <div class="package-roi-focus">
-                        Typical Client ROI Focus:<br>
-                        <strong>For scaling brands with 3+ revenue streams</strong>
+                        Ideal For:<br>
+                        <strong>Scaling businesses with 3+ revenue streams</strong>
                     </div>
                     
                     <div class="package-price">
-                        <div class="price-amount">Starting at $5,500</div>
-                        <div class="price-period">per month • Minimum 3-month commitment</div>
+                        <div class="price-amount">
+                            <span class="original-price">$5,500</span>
+                            <span class="founding-price">$2,997</span>
+                        </div>
+                        <div class="price-period">per month • 3-month minimum</div>
                     </div>
                     
                     <div class="package-features">
@@ -952,11 +1507,11 @@
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>RevOps Integration (HubSpot/Salesforce Sync)</span>
+                            <span>RevOps Integration (HubSpot/Salesforce)</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Basic Predictive LTV Scoring (Layer 5)</span>
+                            <span>Basic Predictive LTV Scoring</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
@@ -964,36 +1519,39 @@
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Team: Strategist + Engineer + Content/RevOps Resources</span>
+                            <span>Team: Strategist + Engineer + Content Specialist</span>
                         </div>
                     </div>
                     
-                    <a href="#book-audit" class="package-cta" data-package="Full Stack">
-                        Book Audit to See If This Is Your Fit
-                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    <a href="#book-audit" class="package-cta" data-package="Revenue Accelerator">
+                        Lock in Founding Rate
+                        <i class="fas fa-lock" style="margin-left: 8px;"></i>
                     </a>
                 </div>
                 
                 <!-- Intelligence Suite Package -->
                 <div class="package-card fade-in delay-2">
-                    <div class="package-badge" style="background-color: #ff6b6b; color: white;">ENTERPRISE GROWTH</div>
+                    <div class="package-badge" style="background: linear-gradient(135deg, #ff6b6b, #ff8e8e); color: white;">ENTERPRISE • 44% OFF</div>
                     <h3 class="package-name">Intelligence Suite</h3>
-                    <p class="package-subtitle">Predictive Growth & LTV Guarantee</p>
+                    <p class="package-subtitle">Predictive Analytics & AI Optimization</p>
                     
                     <div class="package-roi-focus">
-                        Typical Client ROI Focus:<br>
-                        <strong>For established brands optimizing LTV & predicting churn</strong>
+                        Ideal For:<br>
+                        <strong>Established brands optimizing LTV & predicting churn</strong>
                     </div>
                     
                     <div class="package-price">
-                        <div class="price-amount">Starting at $8,000</div>
-                        <div class="price-period">per month • Minimum 6-month commitment</div>
+                        <div class="price-amount">
+                            <span class="original-price">$8,000</span>
+                            <span class="founding-price">$4,497</span>
+                        </div>
+                        <div class="price-period">per month • 6-month minimum</div>
                     </div>
                     
                     <div class="package-features">
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>All Full Stack Features</span>
+                            <span>All Revenue Accelerator Features</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
@@ -1001,7 +1559,7 @@
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Predictive LTV & Churn Forecasting (Full Layer 5)</span>
+                            <span>Predictive LTV & Churn Forecasting</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
@@ -1022,84 +1580,16 @@
                     </div>
                     
                     <a href="#book-audit" class="package-cta" data-package="Intelligence Suite">
-                        Book Audit to See If This Is Your Fit
+                        Schedule Enterprise Consultation
                         <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Why Audit Section -->
-    <section class="audit-section">
-        <div class="container">
-            <div class="audit-container">
-                <div class="audit-reason fade-in">
-                    <h3>⚠️ Why We Require a Consultation Before Recommending Any Tier</h3>
-                    <p>The Intelligence Suite (or any tier) is only effective if it matches your current LTV and operational maturity. We need to perform a brief audit to ensure we recommend the tier that guarantees your highest possible ROI.</p>
-                    <p><strong>Guessing your tier is a costly mistake.</strong> Without proper analysis, you could either under-invest (missing growth opportunities) or over-invest (wasting resources on features you can't yet leverage).</p>
-                </div>
-                
-                <h2 class="section-title">🎯 <span>$3,500:</span> Cost-Saving vs. 📈 <span>$8,000+:</span> Profit Generation</h2>
-                <p class="section-subtitle">Don't guess your tier. We will forecast your Operational Savings (Strategic Tier) versus your Potential LTV Growth (Intelligence Tier) so you can choose based on predictable profit, not just price.</p>
-                
-                <div class="comparison-grid">
-                    <!-- Cost Saving Column -->
-                    <div class="comparison-column cost-saving fade-in">
-                        <div class="column-header">
-                            <div class="column-badge">Operational Savings Path</div>
-                            <div class="column-price">$3,500/mo</div>
-                            <h3 class="column-title">Strategic Tier Focus</h3>
-                        </div>
-                        
-                        <ul class="column-features">
-                            <li><i class="fas fa-check"></i> <strong>Fix leaking budgets</strong> in underperforming channels</li>
-                            <li><i class="fas fa-check"></i> <strong>Automate manual processes</strong> wasting team hours</li>
-                            <li><i class="fas fa-check"></i> <strong>Consolidate fragmented tools</strong> into one system</li>
-                            <li><i class="fas fa-check"></i> <strong>Establish clear attribution</strong> for all marketing spend</li>
-                            <li><i class="fas fa-check"></i> <strong>Build foundational data systems</strong> for future growth</li>
-                        </ul>
-                        
-                        <p style="color: var(--dark-gray); margin-bottom: 25px; font-style: italic;">
-                            <strong>Ideal for:</strong> Businesses spending $10k+/mo on marketing with unclear ROI, or teams wasting 20%+ time on manual tasks.
-                        </p>
-                        
-                        <a href="#book-audit" class="column-cta" data-path="cost-saving">
-                            Audit My Cost-Saving Potential
-                        </a>
-                    </div>
-                    
-                    <!-- Profit Generation Column -->
-                    <div class="comparison-column profit-generation fade-in delay-1">
-                        <div class="column-header">
-                            <div class="column-badge">Revenue Growth Path</div>
-                            <div class="column-price">$8,000+/mo</div>
-                            <h3 class="column-title">Intelligence Tier Focus</h3>
-                        </div>
-                        
-                        <ul class="column-features">
-                            <li><i class="fas fa-check"></i> <strong>Predict customer lifetime value</strong> with 90%+ accuracy</li>
-                            <li><i class="fas fa-check"></i> <strong>Identify churn risks</strong> 60 days before they happen</li>
-                            <li><i class="fas fa-check"></i> <strong>Optimize for LTV</strong>, not just acquisition cost</li>
-                            <li><i class="fas fa-check"></i> <strong>Automate personalized journeys</strong> at scale</li>
-                            <li><i class="fas fa-check"></i> <strong>Leverage predictive analytics</strong> for strategic decisions</li>
-                        </ul>
-                        
-                        <p style="color: var(--dark-gray); margin-bottom: 25px; font-style: italic;">
-                            <strong>Ideal for:</strong> Businesses with 500+ customers, LTV > $1k, or looking to scale predictably with data-driven decisions.
-                        </p>
-                        
-                        <a href="#book-audit" class="column-cta" data-path="profit-generation">
-                            Audit My Growth Potential
-                        </a>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 60px;">
-                    <p style="font-size: 1.3rem; font-weight: 600; color: var(--primary-dark); max-width: 800px; margin: 0 auto 30px;">
-                        Let us predict your ROI before you spend a dime.
-                    </p>
-                </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.1rem; color: var(--dark-gray); max-width: 800px; margin: 0 auto 30px; line-height: 1.7;">
+                    <strong>Conditions for Founding Client Program:</strong> Minimum 3-month commitment (6 months for Intelligence Suite), permission to use anonymized case studies, and active collaboration for best results.
+                </p>
             </div>
         </div>
     </section>
@@ -1107,14 +1597,14 @@
     <!-- Booking Section -->
     <section class="booking-section" id="book-audit">
         <div class="container">
-            <h2 class="booking-title">Stop Comparing Packages.<br>Start With a Data-Driven Diagnosis.</h2>
-            <p class="booking-subtitle">In your 45-minute audit, we'll forecast your operational savings and potential LTV growth, so you can decide based on profit, not price.</p>
+            <h2 class="booking-title fade-in">Apply for Founding Client Program</h2>
+            <p class="booking-subtitle fade-in">Complete this application to join our limited Founding Client Program. We'll review your business and recommend the best starting point—whether it's a 30-day pilot or diving straight into a full package.</p>
             
             <div class="booking-form-container fade-in">
-                <h3 class="form-title">Book Your Custom ROI Audit</h3>
-                <p class="form-subtitle">Complete this form to schedule your free, no-obligation audit. We'll prepare a preliminary analysis before our meeting.</p>
+                <h3 class="form-title">Founding Client Application</h3>
+                <p class="form-subtitle">We're selective about our founding clients to ensure mutual success. Please provide detailed information.</p>
                 
-                <form class="booking-form" id="auditBookingForm">
+                <form class="booking-form" id="foundingApplicationForm">
                     <div class="form-group">
                         <label for="fullName">Full Name <span style="color: #ff4757;">*</span></label>
                         <input type="text" id="fullName" name="fullName" required>
@@ -1126,8 +1616,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company">
+                        <label for="company">Company Name <span style="color: #ff4757;">*</span></label>
+                        <input type="text" id="company" name="company" required>
                     </div>
                     
                     <div class="form-group">
@@ -1136,14 +1626,14 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="monthlyMarketing">Current Monthly Marketing Spend</label>
-                        <select id="monthlyMarketing" name="monthlyMarketing">
+                        <label for="monthlyMarketing">Current Monthly Marketing Spend <span style="color: #ff4757;">*</span></label>
+                        <select id="monthlyMarketing" name="monthlyMarketing" required>
                             <option value="">Select range</option>
-                            <option value="Under $5k">Under $5,000</option>
+                            <option value="Under $2k">Under $2,000</option>
+                            <option value="$2k - $5k">$2,000 - $5,000</option>
                             <option value="$5k - $10k">$5,000 - $10,000</option>
                             <option value="$10k - $25k">$10,000 - $25,000</option>
-                            <option value="$25k - $50k">$25,000 - $50,000</option>
-                            <option value="$50k+">$50,000+</option>
+                            <option value="$25k+">$25,000+</option>
                         </select>
                     </div>
                     
@@ -1160,24 +1650,37 @@
                     </div>
                     
                     <div class="form-group full-width">
-                        <label for="primaryGoal">Primary Goal for the Next 90 Days <span style="color: #ff4757;">*</span></label>
-                        <select id="primaryGoal" name="primaryGoal" required>
-                            <option value="">Select your primary goal</option>
-                            <option value="Reduce marketing waste">Reduce marketing waste/improve efficiency</option>
-                            <option value="Increase lead quality">Increase lead quality & conversion</option>
-                            <option value="Scale predictably">Scale revenue predictably</option>
-                            <option value="Improve LTV">Improve customer lifetime value</option>
-                            <option value="Automate processes">Automate marketing/sales processes</option>
+                        <label for="startingPoint">Preferred Starting Point <span style="color: #ff4757;">*</span></label>
+                        <select id="startingPoint" name="startingPoint" required>
+                            <option value="">Select your preferred starting point</option>
+                            <option value="30-day pilot">30-day Pilot ($997) - Prove value first</option>
+                            <option value="growth foundation">Growth Foundation ($1,997/mo) - Start with core team</option>
+                            <option value="revenue accelerator">Revenue Accelerator ($2,997/mo) - Full system from day 1</option>
+                            <option value="not sure">Not sure - Need recommendation</option>
                         </select>
                     </div>
                     
                     <div class="form-group full-width">
                         <label for="biggestChallenge">Biggest Marketing/Sales Challenge Right Now <span style="color: #ff4757;">*</span></label>
-                        <textarea id="biggestChallenge" name="biggestChallenge" required placeholder="Describe your current challenge in 1-2 sentences..."></textarea>
+                        <textarea id="biggestChallenge" name="biggestChallenge" required placeholder="Describe your current challenge in detail..."></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="caseStudyPermission">
+                            <input type="checkbox" id="caseStudyPermission" name="caseStudyPermission" required>
+                            I agree to allow X5 to use anonymized results for case studies (company name can be hidden if preferred)
+                        </label>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="commitmentAgreement">
+                            <input type="checkbox" id="commitmentAgreement" name="commitmentAgreement" required>
+                            I understand the minimum commitment is 3 months for Growth Foundation/Revenue Accelerator, or 30 days for the Pilot
+                        </label>
                     </div>
                     
                     <button type="submit" class="submit-btn">
-                        Schedule My Free ROI Audit
+                        Submit Founding Client Application
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </form>
@@ -1193,16 +1696,16 @@
                     <a href="/" class="footer-logo">
                         <span>X</span>5<span class="x5">X5</span>
                     </a>
-                    <p class="footer-about">X5 provides US SMEs with an AI-powered revenue department—a full-stack, embedded team that delivers strategy and execution at 1/3 the cost of a single US hire.</p>
+                    <p class="footer-about">X5 provides US SMEs with an AI-powered revenue department—combining US strategic thinking with Vietnam's elite tech talent at 1/3 the cost of a US hire.</p>
                 </div>
                 
                 <div>
-                    <h3 class="footer-heading">Packages</h3>
+                    <h3 class="footer-heading">Founding Program</h3>
                     <ul class="footer-links">
-                        <li><a href="#strategic">Strategic Tier</a></li>
-                        <li><a href="#full-stack">Full Stack Tier</a></li>
-                        <li><a href="#intelligence">Intelligence Suite</a></li>
-                        <li><a href="#audit">ROI Audit</a></li>
+                        <li><a href="#pilot">30-Day Pilot</a></li>
+                        <li><a href="#growth-foundation">Growth Foundation</a></li>
+                        <li><a href="#revenue-accelerator">Revenue Accelerator</a></li>
+                        <li><a href="#intelligence-suite">Intelligence Suite</a></li>
                     </ul>
                 </div>
                 
@@ -1217,86 +1720,118 @@
                 </div>
                 
                 <div>
-                    <h3 class="footer-heading">Contact</h3>
+                    <h3 class="footer-heading">Global Team</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-globe" style="margin-right: 8px;"></i> Global Team</li>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Base: Vietnam</li>
-                        <li><i class="fas fa-clock" style="margin-right: 8px;"></i> US Timezone Coverage</li>
-                        <li><a href="#book-audit"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book Free Audit</a></li>
+                        <li><i class="fas fa-globe" style="margin-right: 8px;"></i> Vietnam Base</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> US Timezone Coverage</li>
+                        <li><i class="fas fa-clock" style="margin-right: 8px;"></i> EST/CST/PST Hours</li>
+                        <li><a href="#book-audit"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Apply for Founding Rate</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 X5 Growth System. All rights reserved. | Stop Paying for Overheads. Start Paying for Performance.</p>
+                <p>&copy; 2023 X5 Growth System. All rights reserved. | Vietnam-Based Excellence for US Market Growth</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
         
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
         });
         
         // Close mobile menu when clicking a link
         const mobileLinks = document.querySelectorAll('.mobile-links a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
         
         // Form submission
-        const auditBookingForm = document.getElementById('auditBookingForm');
+        const foundingApplicationForm = document.getElementById('foundingApplicationForm');
         
-        auditBookingForm.addEventListener('submit', (e) => {
+        foundingApplicationForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(auditBookingForm);
+            const formData = new FormData(foundingApplicationForm);
             const data = Object.fromEntries(formData);
             
+            // Validate required checkboxes
+            if (!data.caseStudyPermission || !data.commitmentAgreement) {
+                alert('Please agree to both the case study permission and commitment agreement to proceed.');
+                return;
+            }
+            
             // In a real implementation, you would send this to your server
-            console.log('Form submitted:', data);
+            console.log('Founding Client Application submitted:', data);
             
             // Show success message
-            alert('Thank you for booking your Custom ROI Audit! We will contact you within 24 hours to schedule the session and send preparation materials.');
+            alert('Thank you for applying to our Founding Client Program! We will review your application within 24 hours and contact you to discuss the best starting point for your business.');
             
             // Reset form
-            auditBookingForm.reset();
+            foundingApplicationForm.reset();
+            
+            // Update spots counter (simulate)
+            const spotsElement = document.getElementById('spots');
+            let currentSpots = parseInt(spotsElement.textContent);
+            if (currentSpots > 1) {
+                spotsElement.textContent = (currentSpots - 1).toString().padStart(2, '0');
+            }
             
             // Scroll to top of form section
             document.getElementById('book-audit').scrollIntoView({ behavior: 'smooth' });
         });
         
-        // Package CTA clicks - track which package user is interested in
-        const packageCtas = document.querySelectorAll('.package-cta, .column-cta');
+        // Countdown timer
+        function updateCountdown() {
+            const daysElement = document.getElementById('days');
+            let days = parseInt(daysElement.textContent);
+            
+            if (days > 0) {
+                daysElement.textContent = (days - 1).toString().padStart(2, '0');
+            }
+        }
+        
+        // Update countdown every 24 hours (for demo, we'll update every 10 seconds)
+        setInterval(updateCountdown, 10000);
+        
+        // Package CTA clicks
+        const packageCtas = document.querySelectorAll('.package-cta');
         
         packageCtas.forEach(cta => {
             cta.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                const packageName = cta.getAttribute('data-package') || cta.getAttribute('data-path');
+                const packageName = cta.getAttribute('data-package');
                 
                 // Scroll to booking form
                 document.getElementById('book-audit').scrollIntoView({ behavior: 'smooth' });
                 
-                // In a real implementation, you might pre-fill a field or track this selection
-                console.log(`User interested in: ${packageName}`);
-                
-                // Optional: Highlight the relevant option in the form
-                if (packageName === 'cost-saving') {
-                    document.getElementById('primaryGoal').value = 'Reduce marketing waste';
-                } else if (packageName === 'profit-generation') {
-                    document.getElementById('primaryGoal').value = 'Improve LTV';
+                // Pre-fill the starting point field
+                if (packageName) {
+                    const startingPointSelect = document.getElementById('startingPoint');
+                    if (packageName === 'Growth Foundation') {
+                        startingPointSelect.value = 'growth foundation';
+                    } else if (packageName === 'Revenue Accelerator') {
+                        startingPointSelect.value = 'revenue accelerator';
+                    } else if (packageName === 'Intelligence Suite') {
+                        startingPointSelect.value = 'not sure'; // Recommend consultation
+                    }
                 }
             });
         });
@@ -1316,7 +1851,7 @@
         }, observerOptions);
         
         // Observe elements for scroll animations
-        document.querySelectorAll('.package-card, .comparison-column, .audit-reason, .booking-form-container').forEach(el => {
+        document.querySelectorAll('.fade-in-section').forEach(el => {
             observer.observe(el);
         });
         
@@ -1348,6 +1883,14 @@
                 header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Close mobile menu on window resize if it becomes desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
     </script>
