@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Hiep — Start2 Growth Engine v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg-primary: #050911;
+    --bg-card: #0d1423;
+    --bg-card2: #111d30;
+    --accent-blue: #3B82F6;
+    --accent-cyan: #06B6D4;
+    --accent-teal: #14B8A6;
+    --accent-green: #22C55E;
+    --accent-emerald: #10B981;
+    --text-primary: #F0F4FF;
+    --text-muted: #8B9EC8;
+    --border: #1a2540;
+    --border-bright: #2a3a60;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-y: scroll; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, .syne { font-family: 'Syne', sans-serif; }
+
+  /* ── NAV ── */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: 56px;
+    background: rgba(5,9,17,0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; width: 100%;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; white-space: nowrap; text-decoration: none;
+  }
+  .nav-tabs {
+    display: flex; align-items: center; gap: 2px;
+    list-style: none; flex: 1; justify-content: center;
+  }
+  .nav-tabs a {
+    display: block; padding: 5px 10px; border-radius: 6px;
+    font-size: 12px; font-weight: 500; color: var(--text-muted);
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
+  }
+  .nav-tabs a:hover { color: var(--text-primary); background: rgba(59,130,246,0.1); }
+  .nav-tabs a.active { color: var(--accent-cyan); background: rgba(6,182,212,0.12); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 0 20px rgba(59,130,246,0.35); transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { box-shadow: 0 0 35px rgba(59,130,246,0.55); transform: translateY(-1px); }
+  #hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  #hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+  #mobile-menu {
+    display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 999;
+    background: rgba(5,9,17,0.97); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem; flex-direction: column; gap: 4px;
+  }
+  #mobile-menu a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text-muted); font-size: 14px; text-decoration: none; }
+  #mobile-menu a:hover, #mobile-menu a.active { color: var(--accent-cyan); background: rgba(6,182,212,0.1); }
+  #mobile-menu.open { display: flex; }
+
+  /* ── PAGE WRAPPER ── */
+  .page-section {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 0 60px; position: relative; overflow: hidden;
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+  /* ── SHARED COMPONENTS ── */
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { border-color: var(--border-bright); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    background: rgba(59,130,246,0.15); color: var(--accent-blue);
+    border: 1px solid rgba(59,130,246,0.25);
+  }
+  .badge-cyan { background: rgba(6,182,212,0.12); color: var(--accent-cyan); border-color: rgba(6,182,212,0.25); }
+  .badge-green { background: rgba(34,197,94,0.12); color: var(--accent-green); border-color: rgba(34,197,94,0.25); }
+  .badge-orange { background: rgba(249,115,22,0.12); color: #fb923c; border-color: rgba(249,115,22,0.25); }
+  .badge-red { background: rgba(239,68,68,0.12); color: #f87171; border-color: rgba(239,68,68,0.25); }
+  .badge-yellow { background: rgba(234,179,8,0.12); color: #facc15; border-color: rgba(234,179,8,0.25); }
+  .section-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-cyan); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+  .section-sub { font-size: 17px; color: var(--text-muted); max-width: 640px; }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, #7dd3fc 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+  .quote-block {
+    border-left: 3px solid var(--accent-cyan); padding: 1rem 1.5rem;
+    background: rgba(6,182,212,0.05); border-radius: 0 10px 10px 0;
+    font-size: 16px; font-style: italic; color: var(--text-primary); line-height: 1.7;
+  }
+  .divider { height: 1px; background: var(--border); margin: 2rem 0; }
+
+  /* ── PLACEHOLDER ── */
+  .deep-dive-placeholder {
+    margin-top: 2.5rem; padding: 2rem;
+    border: 2px dashed rgba(59,130,246,0.3); border-radius: 16px;
+    background: rgba(59,130,246,0.04); text-align: center; color: var(--text-muted);
+  }
+  .deep-dive-placeholder .ph-icon { font-size: 28px; margin-bottom: 10px; }
+  .deep-dive-placeholder .ph-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--accent-blue); margin-bottom: 6px;
+  }
+  .deep-dive-placeholder p { font-size: 14px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-primary); border-top: 1px solid var(--border); padding: 2.5rem 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 767px) {
+    .nav-tabs { display: none; }
+    #hamburger { display: flex; }
+    .responsive-split { grid-template-columns: 1fr !important; }
+    .responsive-2col { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    .section-title { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Start2 GE v2.0</a>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="index.html">Hook</a></li>
+      <li><a href="StatusQuo.html">Status Quo</a></li>
+      <li><a href="Ecosystem.html">Ecosystem</a></li>
+      <li><a href="Vision.html">Vision</a></li>
+      <li><a href="Framework.html">Framework</a></li>
+      <li><a href="ROI.html">ROI</a></li>
+      <li><a href="Roadmap.html">Roadmap</a></li>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="WhyHiep.html" class="active">Why Hiep</a></li>
+      <li><a href="Investment.html">Investment</a></li>
+    </ul>
+    <a href="Investment.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Contact Hiep
+    </a>
+    <div id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html" onclick="closeMobileMenu()">01 — Opening Hook</a>
+  <a href="StatusQuo.html" onclick="closeMobileMenu()">02 — Status Quo</a>
+  <a href="Ecosystem.html" onclick="closeMobileMenu()">03 — Ecosystem</a>
+  <a href="Vision.html" onclick="closeMobileMenu()">04 — Vision</a>
+  <a href="Framework.html" onclick="closeMobileMenu()">05 — Framework</a>
+  <a href="ROI.html" onclick="closeMobileMenu()">06 — ROI Case</a>
+  <a href="Roadmap.html" onclick="closeMobileMenu()">07 — 90-Day Roadmap</a>
+  <a href="Dashboard.html" onclick="closeMobileMenu()">08 — Dashboard</a>
+  <a href="WhyHiep.html" onclick="closeMobileMenu()" class="active">09 — Why Hiep</a>
+  <a href="Investment.html" onclick="closeMobileMenu()">10 — Investment & Ask</a>
+</div>
+
+<style>
+  .page-section { background: var(--bg-primary); }
+  .trust-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+</style>
+
+<section class="page-section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="responsive-split">
+      <div>
+        <p class="section-label fade-in">The Person Behind the Plan</p>
+        <h2 class="section-title fade-in fade-in-delay-1">Why Hiep — <span class="gradient-text">Credibility &amp; Commitment</span></h2>
+        <p class="section-sub fade-in fade-in-delay-2" style="margin-bottom:2rem;">Not here to sell a platform. Here to build the engine, train the team, and hand over dashboards that run on their own.</p>
+        <div class="quote-block fade-in fade-in-delay-3">
+          "Every decision in this framework — the 3 pipelines, the separate scoring models for each persona, the government relationship tracking — was designed specifically for how Start2 works. This is not a generic template adapted for you. It was built from the ground up for you."
+        </div>
+        <div class="deep-dive-placeholder fade-in">
+    <div class="ph-icon">📌</div>
+    <p class="ph-label">Deep-Dive Content Placeholder</p>
+    <p>Insert additional details, supporting images, data tables, testimonials, or case studies in this section.</p>
+  </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="trust-card fade-in fade-in-delay-1">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(59,130,246,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" fill="none" stroke="#3B82F6" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="badge" style="margin-bottom:8px;">Relevant Experience</div>
+              <h3 style="font-size:15px;font-weight:600;margin-bottom:6px;">HubSpot Architecture &amp; RevOps Builds</h3>
+              <p style="font-size:13px;color:var(--text-muted);">Proven track record in HubSpot architecture design, Revenue Operations builds, and multi-persona automation implementations in B2B environments.</p>
+            </div>
+          </div>
+        </div>
+        <div class="trust-card fade-in fade-in-delay-2">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(6,182,212,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" fill="none" stroke="#06B6D4" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <div class="badge badge-cyan" style="margin-bottom:8px;">Ecosystem Familiarity</div>
+              <h3 style="font-size:15px;font-weight:600;margin-bottom:6px;">B2B Multi-Persona, Startup/Corporate</h3>
+              <p style="font-size:13px;color:var(--text-muted);">Deep experience navigating complex B2B ecosystems with multiple buyer personas — exactly the environment Start2 operates in daily.</p>
+            </div>
+          </div>
+        </div>
+        <div class="trust-card fade-in fade-in-delay-3">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(34,197,94,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" fill="none" stroke="#22C55E" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <div class="badge badge-green" style="margin-bottom:8px;">Start2-Specific Prep</div>
+              <h3 style="font-size:15px;font-weight:600;margin-bottom:6px;">Built From the Ground Up for Start2</h3>
+              <p style="font-size:13px;color:var(--text-muted);">Significant time analyzing Start2's programs, website, and operations architecture. The 3-pipeline design, persona scoring models, and government tracking were all custom-designed for this specific ecosystem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="container" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;">
+    <a href="index.html" class="nav-logo" style="font-size:22px;">Start2 Growth Engine v2.0</a>
+    <p style="font-size:13px;color:var(--text-muted);max-width:500px;line-height:1.7;">
+      A proposal by <strong style="color:var(--text-primary)">Hiep Nguyen</strong> · Marketing Operations &amp; Analytics Manager<br>
+      Prepared for Start2 Group · February 2026
+    </p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="https://start2.group" target="_blank" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">start2.group</a>
+      <span style="color:var(--border);">|</span>
+      <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">LinkedIn</a>
+      <span style="color:var(--border);">|</span>
+      <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">Download PDF</a>
+    </div>
+    <p style="font-size:12px;color:rgba(139,158,200,0.4);">© 2026 Hiep Nguyen · Start2 Growth Engine v2.0 · Outline version 1.0</p>
+  </div>
+</footer>
+
+<script>
+// ── Fade-in on load ──
+window.addEventListener('DOMContentLoaded', () => {
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '-20px 0px 0px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+  // Immediately show elements in view
+  setTimeout(() => {
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 100);
+});
+
+// ── Mobile nav ──
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
